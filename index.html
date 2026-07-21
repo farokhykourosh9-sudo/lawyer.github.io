@@ -1661,4 +1661,1631 @@
     </script>
 
 </body>
+</html>        }
+
+        h1, h2, h3, h4, .logo, .number, .badge, .nav-cta, .btn-primary, .btn-outline {
+            font-family: 'Playfair Display', 'Vazirmatn', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        /* ============================================================
+           هدر و منوی ناوبری - بهینه شده برای موبایل
+           ============================================================ */
+        header {
+            background: rgba(10, 10, 10, 0.85);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: clamp(1.2rem, 4vw, 1.9rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo .logo-icon {
+            display: inline-block;
+            width: clamp(32px, 5vw, 40px);
+            height: clamp(32px, 5vw, 40px);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.3rem;
+            list-style: none;
+            font-weight: 500;
+            font-family: 'Vazirmatn', sans-serif;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            padding: 6px 10px;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .nav-links a i {
+            font-size: clamp(0.6rem, 1vw, 0.8rem);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            transform: translateX(50%);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 50%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff !important;
+            padding: 6px 14px !important;
+            border-radius: 20px !important;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.25);
+            position: relative;
+            overflow: hidden;
+            font-size: clamp(0.7rem, 1.2vw, 0.95rem) !important;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 20px;
+        }
+
+        .nav-cta:hover::before {
+            opacity: 1;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 35px rgba(59, 130, 246, 0.4);
+            color: #fff !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta i {
+            opacity: 1 !important;
+            color: #fff !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+
+        /* ============================================================
+           Hero - بهینه شده برای موبایل
+           ============================================================ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #0a0a0a;
+            overflow: hidden;
+            padding-top: 60px;
+        }
+
+        .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://uploadkon.ir/uploads/c73b12_26ChatGPT-Image-Jul-13-2026-03-08-46-AM.png');
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(0.4) saturate(0.9);
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+    transition: mask-image 0.1s ease, -webkit-mask-image 0.1s ease;
+}
+
+/* ======= عکس جدید برای موبایل ======= */
+@media (max-width: 768px) {
+    .hero-bg {
+        background-image: url('https://uploadkon.ir/uploads/a9b321_26ChatGPT-Image-Jul-22-2026-12-07-54-AM.png');
+        background-position: center center;
+    }
+}
+
+        .hero-bg-fade {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #0a0a0a;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.15s ease-out;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 850px;
+            padding: 20px;
+            animation: fadeInUp 1s ease;
+            width: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content .badge {
+            background: #3b82f6;
+            color: #fff;
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 7vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-content h1 span {
+            color: #3b82f6;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(59, 130, 246, 0.2); }
+            to { text-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+        }
+
+        .hero-content p {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: #d0d0d0;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            font-family: 'Vazirmatn', sans-serif;
+            padding: 0 10px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: #fff;
+            padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 38px);
+            border-radius: 40px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid #3b82f6;
+            color: #fff;
+            padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 38px);
+            border-radius: 40px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: transparent;
+            cursor: pointer;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #3b82f6;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-outline:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-outline:hover {
+            color: #fff;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        /* ============================================================
+           بخش‌های دیگر - بهینه شده برای موبایل
+           ============================================================ */
+        .section {
+            padding: clamp(40px, 8vw, 80px) 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title span {
+            color: #3b82f6;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto clamp(20px, 4vw, 50px);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            padding: 0 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+            gap: clamp(15px, 3vw, 30px);
+        }
+
+        .service-card {
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(8px);
+            padding: clamp(20px, 4vw, 35px) clamp(15px, 3vw, 25px);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #1f1f1f;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-card i {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #3b82f6;
+            margin-bottom: 15px;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .service-card h3 {
+            color: #fff;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-card p {
+            color: #aaa;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        /* ============================================================
+           بخش ارتباطی - بهینه شده برای موبایل
+           ============================================================ */
+        .contact-section {
+            padding: clamp(40px, 8vw, 100px) 0;
+            position: relative;
+            background: #0a0a0a;
+            overflow: hidden;
+            border-top: 1px solid rgba(59, 130, 246, 0.05);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.05);
+        }
+
+        .contact-section .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: clamp(30px, 6vw, 50px) clamp(30px, 6vw, 50px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(clamp(30px, 6vw, 50px), clamp(30px, 6vw, 50px)); }
+        }
+
+        .contact-section .dot-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+            background-size: clamp(20px, 4vw, 30px) clamp(20px, 4vw, 30px);
+            z-index: 0;
+            opacity: 0.4;
+            animation: dotMove 15s linear infinite;
+        }
+
+        @keyframes dotMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(clamp(20px, 4vw, 30px), clamp(20px, 4vw, 30px)); }
+        }
+
+        .contact-section .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .contact-section .glow-circle.c1 {
+            width: clamp(200px, 40vw, 400px);
+            height: clamp(200px, 40vw, 400px);
+            background: rgba(59, 130, 246, 0.05);
+            top: -100px;
+            right: -100px;
+            animation: floatGlow 15s ease-in-out infinite alternate;
+        }
+
+        .contact-section .glow-circle.c2 {
+            width: clamp(150px, 30vw, 300px);
+            height: clamp(150px, 30vw, 300px);
+            background: rgba(96, 165, 250, 0.04);
+            bottom: -50px;
+            left: -50px;
+            animation: floatGlow 20s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -30px) scale(1.2); }
+        }
+
+        .contact-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: clamp(30px, 5vw, 50px);
+        }
+
+        .contact-header .section-badge {
+            display: inline-block;
+            color: #3b82f6;
+            font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: rgba(59, 130, 246, 0.08);
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-header h2 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-header h2 span {
+            color: #3b82f6;
+        }
+
+        .contact-header p {
+            color: #999;
+            max-width: 500px;
+            margin: 8px auto 0;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            padding: 0 10px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+            gap: clamp(15px, 3vw, 30px);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: rgba(20, 20, 30, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: clamp(20px, 4vw, 35px) clamp(15px, 3vw, 25px);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.06);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item .icon-wrap {
+            width: clamp(50px, 10vw, 70px);
+            height: clamp(50px, 10vw, 70px);
+            margin: 0 auto 12px;
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.02));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(59, 130, 246, 0.06);
+            position: relative;
+        }
+
+        .contact-item .icon-wrap i {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: #3b82f6;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .contact-item:hover .icon-wrap {
+            transform: scale(1.08) rotate(5deg);
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0.04));
+            border-color: rgba(59, 130, 246, 0.15);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.06);
+        }
+
+        .contact-item:hover .icon-wrap i {
+            transform: scale(1.1);
+            color: #60a5fa;
+        }
+
+        .contact-item h4 {
+            color: #fff;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover h4 {
+            color: #3b82f6;
+        }
+
+        .contact-item p {
+            color: #999;
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+            font-family: 'Vazirmatn', sans-serif;
+            direction: ltr;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover p {
+            color: #bbb;
+        }
+
+        .contact-item .contact-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #3b82f6;
+            font-size: clamp(0.65rem, 1vw, 0.8rem);
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .contact-item:hover .contact-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================================
+           بخش مهارت‌ها - بهینه شده برای موبایل
+           ============================================================ */
+        .skills-section {
+            padding: clamp(40px, 8vw, 110px) 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 40%, #0a0a0a 100%);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .skills-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-header {
+            text-align: center;
+            margin-bottom: clamp(30px, 5vw, 60px);
+            position: relative;
+        }
+
+        .skills-header .section-badge {
+            display: inline-block;
+            color: #3b82f6;
+            font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: rgba(59, 130, 246, 0.08);
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .skills-section .section-title {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .skills-section .section-title span {
+            color: #3b82f6;
+            position: relative;
+        }
+
+        .skills-section .section-subtitle {
+            text-align: center;
+            color: #999;
+            max-width: 550px;
+            margin: 8px auto 0;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-family: 'Vazirmatn', sans-serif;
+            padding: 0 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: clamp(15px, 3vw, 35px);
+            perspective: 1200px;
+        }
+
+        .skill-card {
+            background: rgba(20, 20, 30, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: clamp(20px, 4vw, 40px) clamp(15px, 3vw, 30px) clamp(20px, 4vw, 35px);
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card .icon-wrapper {
+            width: clamp(55px, 10vw, 85px);
+            height: clamp(55px, 10vw, 85px);
+            margin: 0 auto 15px;
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.12), rgba(59, 130, 246, 0.03));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(59, 130, 246, 0.08);
+            position: relative;
+        }
+
+        .skill-card .icon-wrapper i {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #3b82f6;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.1));
+        }
+
+        .skill-card:hover .icon-wrapper {
+            transform: rotateY(180deg) scale(1.08);
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.06));
+            border-color: rgba(59, 130, 246, 0.25);
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.08);
+        }
+
+        .skill-card:hover .icon-wrapper i {
+            transform: rotateY(180deg) scale(1.1);
+            color: #60a5fa;
+            filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.3));
+        }
+
+        .skill-card h3 {
+            color: #fff;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-card:hover h3 {
+            color: #3b82f6;
+        }
+
+        .skill-card p {
+            color: #aaa;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+            font-family: 'Vazirmatn', sans-serif;
+            margin-bottom: 15px;
+            transition: color 0.4s ease;
+            line-height: 1.7;
+        }
+
+        .skill-card:hover p {
+            color: #ccc;
+        }
+
+        .skill-bar-wrap {
+            margin-top: 5px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            height: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-bar {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+            background-size: 200% 100%;
+            animation: barGradient 3s ease infinite;
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        @keyframes barGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .skill-card .skill-number {
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+            color: #3b82f6;
+            font-weight: 600;
+            margin-top: 8px;
+            opacity: 0.5;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-card:hover .skill-number {
+            opacity: 1;
+            transform: scale(1.1);
+            color: #60a5fa;
+        }
+
+        .skill-card .card-divider {
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, transparent);
+            margin: 10px auto 0;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .skill-card:hover .card-divider {
+            width: 50px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        }
+
+        /* ============================================================
+           نظرات - بهینه شده برای موبایل
+           ============================================================ */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: clamp(15px, 3vw, 30px);
+        }
+
+        .testimonial-card {
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(8px);
+            padding: clamp(20px, 4vw, 30px) clamp(15px, 3vw, 25px);
+            border-radius: 16px;
+            border: 1px solid #1f1f1f;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .testimonial-card i {
+            color: #3b82f6;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        .testimonial-card p {
+            color: #ccc;
+            font-style: italic;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: clamp(0.85rem, 1.2vw, 1rem);
+        }
+
+        .testimonial-card .client {
+            margin-top: 12px;
+            color: #3b82f6;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.9rem, 1.2vw, 1rem);
+        }
+
+        /* ============================================================
+           فوتر - بهینه شده برای موبایل
+           ============================================================ */
+        footer {
+            background: #0c0c0c;
+            padding: clamp(30px, 5vw, 50px) 0;
+            border-top: 1px solid #1a2a3a;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+            gap: clamp(20px, 4vw, 40px);
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #999;
+            display: block;
+            margin-bottom: 6px;
+            transition: 0.3s;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+        }
+
+        .footer-col a:hover {
+            color: #3b82f6;
+            transform: translateX(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 15px;
+            text-align: center;
+            color: #666;
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .footer-bottom i {
+            color: #3b82f6;
+        }
+
+        /* ============================================================
+           منوی موبایل - بهینه شده
+           ============================================================ */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 320px;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 80px 25px 30px;
+                gap: 5px;
+                transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-left: 1px solid rgba(59, 130, 246, 0.1);
+                overflow-y: auto;
+                align-items: stretch;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                padding: 12px 16px;
+                font-size: 1rem;
+                border-radius: 10px;
+                justify-content: flex-start;
+                white-space: normal;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-links a:hover {
+                background: rgba(59, 130, 246, 0.1);
+                transform: translateX(-5px);
+            }
+
+            .nav-cta {
+                text-align: center;
+                justify-content: center !important;
+                margin-top: 8px;
+                font-size: 0.95rem !important;
+                padding: 12px 20px !important;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+                z-index: 999;
+            }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero {
+                min-height: 400px;
+                padding-top: 60px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(1.6rem, 6vw, 2.6rem);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
+
+            .hero-content p {
+                font-size: 0.85rem;
+            }
+
+            .btn-primary, .btn-outline {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .logo .logo-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 10px 14px;
+            }
+
+            .contact-item {
+                padding: 15px 10px;
+            }
+
+            .contact-item .icon-wrap {
+                width: 40px;
+                height: 40px;
+            }
+
+            .contact-item .icon-wrap i {
+                font-size: 1.2rem;
+            }
+
+            .contact-item h4 {
+                font-size: 0.85rem;
+            }
+
+            .contact-item p {
+                font-size: 0.7rem;
+            }
+
+            .contact-item .contact-link {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .contact-item {
+                padding: 12px 8px;
+            }
+
+            .contact-item .icon-wrap {
+                width: 35px;
+                height: 35px;
+                margin-bottom: 6px;
+            }
+
+            .contact-item .icon-wrap i {
+                font-size: 1rem;
+            }
+
+            .contact-item h4 {
+                font-size: 0.75rem;
+            }
+
+            .contact-item p {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== اوورلی موبایل ========== -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ========== HEADER ========== -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-scale-balanced"></i></span>
+                مژگان <span>مقدمی</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> خانه</a></li>
+                <li><a href="#services"><i class="fas fa-briefcase"></i> خدمات</a></li>
+                <li><a href="#skills"><i class="fas fa-star"></i> مهارت‌ها</a></li>
+                <li><a href="#contact"><i class="fas fa-phone"></i> ارتباط</a></li>
+                <li><a href="#testimonials"><i class="fas fa-comment"></i> نظرات</a></li>
+                <li><a href="#" class="nav-cta"><i class="fas fa-headset"></i> تماس</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="منو">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-bg-fade" id="heroFade"></div>
+        <div class="hero-content">
+            <span class="badge"><i class="fas fa-gavel"></i> &nbsp;وکیل پایه یک</span>
+            <h1>دفاع از حق <br />با <span>تخصص و تعهد</span></h1>
+            <p>بیش از ۱۵ سال تجربه در دعاوی حقوقی، کیفری و خانواده. همراه شما تا احقاق کامل حق‌تان.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary"><i class="fas fa-calendar-check"></i> نوبت مشاوره</a>
+                <a href="#" class="btn-outline">بیشتر بدانید</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="skills-header">
+                <span class="section-badge"><i class="fas fa-star"></i> تخصص‌های کلیدی</span>
+                <h2 class="section-title">مهارت‌های <span>حرفه‌ای</span> وکیل</h2>
+                <p class="section-subtitle">تخصص‌های کلیدی که ما را در ارائه بهترین خدمات حقوقی متمایز می‌کند.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>حقوق خانواده</h3>
+                    <p>طلاق، مهریه، حضانت و امور خانواده با رویکرد مصالحه</p>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar" style="width: 92%;"></div>
+                    </div>
+                    <span class="skill-number">+۹۲%</span>
+                    <div class="card-divider"></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-handcuffs"></i>
+                    </div>
+                    <h3>حقوق کیفری</h3>
+                    <p>دفاع در محاکم کیفری، اعاده حیثیت و کاهش مجازات</p>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar" style="width: 88%;"></div>
+                    </div>
+                    <span class="skill-number">+۸۸%</span>
+                    <div class="card-divider"></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>قراردادهای تجاری</h3>
+                    <p>تنظیم، بررسی و فسخ قراردادهای پیچیده تجاری</p>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar" style="width: 95%;"></div>
+                    </div>
+                    <span class="skill-number">+۹۵%</span>
+                    <div class="card-divider"></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>حقوق ملکی</h3>
+                    <p>مشاوره در خرید، فروش، اجاره و دعاوی ملکی</p>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar" style="width: 85%;"></div>
+                    </div>
+                    <span class="skill-number">+۸۵%</span>
+                    <div class="card-divider"></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>داوری و میانجیگری</h3>
+                    <p>حل اختلافات خارج از دادگاه با رویکردی عادلانه</p>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar" style="width: 80%;"></div>
+                    </div>
+                    <span class="skill-number">+۸۰%</span>
+                    <div class="card-divider"></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>مشاوره حقوقی</h3>
+                    <p>ارائه مشاوره تخصصی به شرکت‌ها و سازمان‌ها</p>
+                    <div class="skill-bar-wrap">
+                        <div class="skill-bar" style="width: 90%;"></div>
+                    </div>
+                    <span class="skill-number">+۹۰%</span>
+                    <div class="card-divider"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">خدمات <span>حقوقی</span> ما</h2>
+            <p class="section-subtitle">در تمامی زمینه‌های حقوقی با بالاترین کیفیت و دقت در خدمت شما هستیم.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>حقوق خانواده</h3>
+                    <p>طلاق، مهریه، حضانت و کلیه امور خانواده با رویکرد مصالحه و تخصص.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handcuffs"></i>
+                    <h3>حقوق کیفری</h3>
+                    <p>دفاع در محاکم کیفری، اعاده حیثیت و کاهش مجازات با استراتژی هوشمند.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>قراردادها</h3>
+                    <p>تنظیم، بررسی و فسخ قراردادهای تجاری، ملکی و کاری با دقت بالا.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>حقوق ملکی</h3>
+                    <p>مشاوره در خرید، فروش، اجاره و دعاوی ملکی با دانش به‌روز.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ارتباط ========== -->
+    <section class="contact-section" id="contact">
+        <div class="grid-bg"></div>
+        <div class="dot-pattern"></div>
+        <div class="glow-circle c1"></div>
+        <div class="glow-circle c2"></div>
+        
+        <div class="container">
+            <div class="contact-header">
+                <span class="section-badge"><i class="fas fa-headset"></i> ارتباط با ما</span>
+                <h2>راه‌های <span>ارتباطی</span></h2>
+                <p>از طریق هر یک از راه‌های زیر با ما در ارتباط باشید</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="icon-wrap">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <h4>تماس تلفنی</h4>
+                    <p>۰۲۱-۱۲۳۴-۵۶۷۸</p>
+                    <span class="contact-link">تماس بگیرید <i class="fas fa-arrow-left"></i></span>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-wrap">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>ایمیل</h4>
+                    <p>info@bluelaw.ir</p>
+                    <span class="contact-link">ارسال ایمیل <i class="fas fa-arrow-left"></i></span>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-wrap">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4>واتساپ</h4>
+                    <p>۰۹۱۲-۳۴۵-۶۷۸۹</p>
+                    <span class="contact-link">پیام دهید <i class="fas fa-arrow-left"></i></span>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon-wrap">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <h4>آدرس دفتر</h4>
+                    <p>تهران، خیابان ولیعصر</p>
+                    <span class="contact-link">مشاهده نقشه <i class="fas fa-arrow-left"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== نظرات ========== -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">نظرات <span>موکلان</span></h2>
+            <p class="section-subtitle">آنچه مشتریان ما درباره همکاری با ما می‌گویند.</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>«وکالت آبی در سخت‌ترین پرونده‌ام همراه من بود و با تدبیر عالی، نتیجه را به سود من تغییر داد.»</p>
+                    <div class="client">– احمد رضایی</div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>«مشاوره دقیق و پیگیری شبانه‌روزی ایشان، اعتماد به نفس عجیبی به من داد. حرفه‌ای‌ترین وکیلی که تا امروز دیدم.»</p>
+                    <div class="client">– سارا محمدی</div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p>«پرونده ملکی من سال‌ها طول کشیده بود، اما با دانش حقوقی و صبر این تیم، در کمتر از ۳ ماه به نتیجه رسیدیم.»</p>
+                    <div class="client">– علی کریمی</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== فوتر ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>وکالت آبی</h4>
+                    <p>ما تیمی از وکلای مجرب هستیم که با عشق به عدالت، در کنار شما هستیم.</p>
+                    <p style="margin-top:10px;">
+                        <i class="fas fa-phone" style="color:#3b82f6;"></i> ۰۲۱-۱۲۳۴-۵۶۷۸<br />
+                        <i class="fas fa-envelope" style="color:#3b82f6;"></i> info@bluelaw.ir
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>خدمات</h4>
+                    <a href="#">حقوق خانواده</a>
+                    <a href="#">حقوق کیفری</a>
+                    <a href="#">قراردادها</a>
+                    <a href="#">حقوق ملکی</a>
+                </div>
+                <div class="footer-col">
+                    <h4>دسترسی سریع</h4>
+                    <a href="#">درباره ما</a>
+                    <a href="#">تیم وکلا</a>
+                    <a href="#">نمونه پرونده‌ها</a>
+                    <a href="#">تماس با ما</a>
+                </div>
+                <div class="footer-col">
+                    <h4>شبکه‌های اجتماعی</h4>
+                    <div style="display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;">
+                        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-telegram fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; ۱۴۰۴ تمامی حقوق محفوظ است | طراحی شده با <i class="fas fa-heart"></i> برای وکالت حرفه‌ای
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== اسکریپت‌ها ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ====== هدر - افکت اسکرول ======
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // ====== منوی همبرگر ======
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('overlay');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('open');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navLinks.classList.contains('open')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // ====== افکت محو شدن هدر ======
+            const heroBg = document.getElementById('heroBg');
+            const heroFade = document.getElementById('heroFade');
+            const hero = document.getElementById('hero');
+
+            function updateHeroFade() {
+                const rect = hero.getBoundingClientRect();
+                const scrollPercent = 1 - (rect.bottom / window.innerHeight);
+                const progress = Math.min(1, Math.max(0, scrollPercent));
+
+                const startFade = 40 + (progress * 40);
+                const endFade = 70 + (progress * 30);
+                const maskValue = `linear-gradient(to bottom, rgba(0,0,0,1) ${startFade}%, rgba(0,0,0,${1 - progress}) ${endFade}%, rgba(0,0,0,0) 100%)`;
+                heroBg.style.maskImage = maskValue;
+                heroBg.style.webkitMaskImage = maskValue;
+
+                heroFade.style.opacity = progress * 0.7;
+            }
+
+            window.addEventListener('scroll', updateHeroFade);
+            window.addEventListener('resize', updateHeroFade);
+            updateHeroFade();
+
+            // ====== اسکرول نرم برای تمام لینک‌های منو ======
+            document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId === '#' || targetId === '') {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = 70;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // ====== انیمیشن ظاهر شدن کارت‌ها هنگام اسکرول ======
+            const skillCards = document.querySelectorAll('.skill-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const bar = card.querySelector('.skill-bar');
+                        if (bar) {
+                            const width = bar.style.width;
+                            bar.style.width = '0%';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 300);
+                        }
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            skillCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+</body>
 </html>
